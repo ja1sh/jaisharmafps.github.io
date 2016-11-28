@@ -38,50 +38,8 @@
         {% endif %}
 
       </header>
-
-      {% if site.resume_section_experience %}
-      <!-- begin Experience -->
-      <section class="content-section">
-
-        <header class="section-header">
-          <h2>Experience</h2>
-        </header>
-
-        <!-- Duplicate these resume-item elements and edit accordingly for each job you want to add here -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Airveda Technologies (Freelancer)</h3>
-          <h4 class="resume-item-details" itemprop="description">UI/UX Designer &bull; Dec, 2015 &mdash; Feb, 2016</h4>
-          <p class="resume-item-copy">Developed UI/UX for Android and iOS devices</p>
-          <ul class="resume-item-list">
-            <li>I was responsible for the smooth UI experience</li>
-            <li>Designed data in graphical grids</li>
-            <li>Designed various layouts for data representation</li>
-          </ul>
-			<!-- extra commenting to done later on -->
-          <!-- <p class="resume-item-copy"></p> -->
-        </div><!-- end of resume-item -->
-
-        <!-- another resume item -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Sir Putt-A-Lot's Merrie Olde Fun Centre</h3>
-          <h4 class="resume-item-details" itemprop="description">Windmill Crank Operator &bull; Jun, 1978 &mdash; Sept, 1979</h4>
-          <p class="resume-item-copy">If your stint was shorter, feel free to be brief and just call out the most meaningful points of your role. Be concise, and be meaninful. The person reading just needs enough to want to talk to you more about your experience.</p>
-
-        </div><!-- end of resume-item -->
-
-        <!-- by now you're getting the picture... -->
-        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
-          <h3 class="resume-item-title" itemprop="name">Simpson Lazer Tag</h3>
-          <h4 class="resume-item-details" itemprop="description">Front Desk Attendant &bull; Jun, 1975 &mdash; May, 1978</h4>
-          <p class="resume-item-copy">Boy, when Marge first told me she was going to the Police Academy, I thought it would be fun and exciting, you know, like the movie... Spaceballs. But instead, it's been painful and disturbing, like the movie Police Academy.</p>
-
-        </div><!-- end of resume-item -->
-
-      </section>
-      <!-- end Experience -->
-      {% endif %}
-
-      {% if site.resume_section_education %}
+		
+		 {% if site.resume_section_education %}
       <!-- begin Education -->
       <section class="content-section">
 
@@ -99,6 +57,50 @@
       <!-- end Education -->
       {% endif %}
 
+
+      {% if site.resume_section_experience %}
+      <!-- begin Experience -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Experience</h2>
+        </header>
+
+        <!-- Duplicate these resume-item elements and edit accordingly for each job you want to add here -->
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">Airveda Technologies (Freelancing)</h3>
+          <h4 class="resume-item-details" itemprop="description">UI/UX Developer &bull; Dec, 2015 &mdash; Feb, 2016</h4>
+          <p class="resume-item-copy">Developed UI/UX for Android and iOS devices</p>
+          <ul class="resume-item-list">
+            <li>I was responsible for the smooth UI experience</li>
+            <li>Designed data in graphical grids</li>
+            <li>Designed various layouts for data representation</li>
+          </ul>
+			<!-- extra commenting to done later on -->
+          <!-- <p class="resume-item-copy"></p> -->
+        </div><!-- end of resume-item -->
+
+        <!-- another resume item -->
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">Skooter Ventures (Freelancing)</h3>
+          <h4 class="resume-item-details" itemprop="description">UI/UX Designer &bull; Feb, 2015 &mdash; April, 2015</h4>
+          <p class="resume-item-copy">If your stint was shorter, feel free to be brief and just call out the most meaningful points of your role. Be concise, and be meaninful. The person reading just needs enough to want to talk to you more about your experience.</p>
+
+        </div><!-- end of resume-item -->
+
+        <!-- by now you're getting the picture... -->
+        <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
+          <h3 class="resume-item-title" itemprop="name">Simpson Lazer Tag</h3>
+          <h4 class="resume-item-details" itemprop="description">Front Desk Attendant &bull; Jun, 1975 &mdash; May, 1978</h4>
+          <p class="resume-item-copy">Boy, when Marge first told me she was going to the Police Academy, I thought it would be fun and exciting, you know, like the movie... Spaceballs. But instead, it's been painful and disturbing, like the movie Police Academy.</p>
+
+        </div><!-- end of resume-item -->
+
+      </section>
+      <!-- end Experience -->
+      {% endif %}
+
+     
       {% if site.resume_section_projects %}
       <!-- begin Projects -->
       <section class="content-section">
