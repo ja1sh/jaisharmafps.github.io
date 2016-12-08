@@ -107,12 +107,38 @@
   @include sans_light;
   color: #333;
   line-height: 55px;
-  @include transition(all .2s ease);
+  transition: all 0.5s;
+  cursor: pointer;
 
-  &:hover {
-    background-color: #333;
-    color: #fff;
-  }
+.contact-button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.contact-button span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.contact-button:hover span {
+  padding-right: 25px;
+}
+
+.contact-button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+	
+//  &:hover {
+  //  background-color: #333;
+//    color: #fff;
+ // }
 
   &.not-looking { width: 400px; }
 }
