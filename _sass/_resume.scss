@@ -109,27 +109,9 @@
   line-height: 55px;
   @include transition(all .2s ease);
 
-	.contact-button span {
-		cursor: pointer;
-		display: inline-block;
-		position:relative;
-		transition: 0.5s;
-	}
-	
-	.contact-button after {
-		content: "»";
-		position: absolute;
-		opacity: 0;
-		top: 0;
-		right: -20px;
-		transition: 0.5s;
-	}
-	
-	
-  &:hover span {
-    	background-color: #333;
-		padding-right: 25px;
-    	color: #fff;
+  &:hover {
+    background-color: #333;
+    color: #fff;
   }
 
   &.not-looking { width: 400px; }
