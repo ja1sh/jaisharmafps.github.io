@@ -109,33 +109,12 @@
   line-height: 55px;
   transition: all 0.5s;
   cursor: pointer;
-	
-.contact-button span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
 
-.contact-button span:after {
-  content: '»';
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-&:hover {
-  padding-right: 25px;
-}
-
-  //&:hover {
-    //background-color: #333;
-    //color: #fff;
-  //}
-
-  //&.not-looking { width: 400px; }
+  &:hover {
+  	background-color: #333;
+    color: #fff;
+	}
+  &.not-looking { width: 400px; }
 }
 
 // resume content styles
