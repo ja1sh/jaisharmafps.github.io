@@ -111,11 +111,11 @@
   cursor: pointer;
 
 	@keyframes ani {
-		0% {background-color:red;}
-		25% {background-color:blue;}
-		50% {background-color:green;}
-		75% {background-color:yellow;}
-		100% {background-color:red;}
+		0% {background-color:##e74c3c;}
+		25% {background-color:#1abc9c;}
+		50% {background-color:#2ecc71;}
+		75% {background-color:#f1c40f;}
+		100% {background-color:#9b59b6;}
 	}
 	
   &:hover {
