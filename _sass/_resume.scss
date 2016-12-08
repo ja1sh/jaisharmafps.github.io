@@ -123,6 +123,7 @@
     //color: #fff;
 	animation-name: ani;
 	animation-duration: 4s;
+	animation-iteration-count: infinite;
 	}
   &.not-looking { width: 400px; }
 }
