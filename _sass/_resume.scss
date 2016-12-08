@@ -126,11 +126,11 @@
   transition: 0.5s;
 }
 
-.contact-button:hover span {
+&:hover span {
   padding-right: 25px;
 }
 
-.contact-button:hover span:after {
+&:hover span:after {
   opacity: 1;
   right: 0;
 }
