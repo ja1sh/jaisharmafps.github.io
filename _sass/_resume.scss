@@ -126,14 +126,10 @@
   transition: 0.5s;
 }
 
-.contact-button:hover span {
+&:hover {
   padding-right: 25px;
 }
 
-.contact-button:hover span:after {
-  opacity: 1;
-  right: 0;
-	}
   //&:hover {
     //background-color: #333;
     //color: #fff;
