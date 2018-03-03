@@ -1,6 +1,6 @@
 # Site settings
-title: "JAI KUMAR SHARMA"
-description: "An Online Resume"
+title: "Jai Kumar Sharma: Open Source Contributor"
+description: "An Online Resume: My experiences, education and skills in nutshell"
 
 # Build settings
 markdown: kramdown
@@ -37,9 +37,9 @@ resume_social_links:
   resume_github_url:            "https://github.com/jaisharmafps"
   resume_twitter_url:           "http://twitter.com/jai_sharma_"
   resume_dribbble_url:          ""
-  # resume_facebook_url:          "https://facebook.com/thejsjsjs"
+  resume_facebook_url:          "https://facebook.com/thejsjsjs"
   resume_linkedin_url:          "https://www.linkedin.com/in/jaithesharma"
-  # resume_instagram_url:         "https://instagram.com/_jaisharma_"
+  resume_instagram_url:         "https://instagram.com/_jaisharma_"
   resume_website_url:           "http://jaisharma.xyz"
 
 # Design settings
