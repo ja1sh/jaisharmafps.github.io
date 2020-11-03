@@ -35,7 +35,7 @@ resume_section_associations:    true
 # uncomment the options you wish to display, and add your own URL
 resume_social_links:
   resume_github_url:            "https://github.com/jaisharmafps"
-  resume_twitter_url:           "http://twitter.com/ja1sharma"
+  resume_twitter_url:           "https://twitter.com/ja1sharma"
   #resume_dribbble_url:          ""
   #resume_facebook_url:          ""
   resume_linkedin_url:          "https://www.linkedin.com/in/jaithesharma"
