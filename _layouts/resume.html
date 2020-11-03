@@ -14,13 +14,13 @@
         <img src="images/avatar.jpg" alt="my photo" class="avatar" itemprop="image">
         {% endif %}
 
-        <meta name="description" content="Jai Kumar Sharma, Associate Consultant, Application Security Ethusiast, Experienced in Mobile/Web Applications and Web Services">
-        <meta name="keywords" content="Jai Kumar Sharma, Jai Sharma, Jai, Technology Enthusiast, Tech Guy, Coder, Freelancer, Consultant, Paid Consultant, Secuirty Consultant">
+        <meta name="description" content="Jai Kumar Sharma, Consultant, Application Security Ethusiast, Experienced in making Mobile/Web Applications and Web Service Secure">
+        <meta name="keywords" content="Jai Kumar Sharma, Jai Sharma, ja1sharma, Penetration Tester, Security Researcher, Bug Bounty Hunter, Consultant, Security Professional, Secuirty Consultant">
         <h1 class="header-name" itemprop="name">{{ site.resume_name }}</h1>
 
         <div class="title-bar">
 
-          
+
           <h2 class="header-title" itemprop="jobTitle">{{ site.resume_title }}</h2>
 
           {% include icon-links.html %}
@@ -38,7 +38,35 @@
         {% endif %}
 
       </header>
-        
+
+        {% if site.resume_section_recognition %}
+      <!-- My HOFs -->
+      <section class="content-section">
+
+        <header class="section-header">
+          <h2>Certifications</h2>
+        </header>
+           <div class="resume-item">
+          <h3 class="resume-item-title" itemprop="award">CEH v10</h3>
+          <h4 class="resume-item-details">EC-Council &bull; Jan, 2019</h4>
+			<p class="resume-item-copy">Certified Ethical Hacker is a qualification obtained by demonstrating knowledge of assessing the security of computer systems.</p>
+          </div>
+
+        <div class="resume-item">
+          <h3 class="resume-item-title" itemprop="award">CORE JAVA</h3>
+          <h4 class="resume-item-details">IIHT Ltd &bull; July, 2015</h4>
+          <p class="resume-item-copy">License: IN/IIHT/NO300803</p>
+			<p class="resume-item-copy">As part of JAVA - Basic Level, following are the topics covered:</p>
+			<ul class="resume-item-list">
+			    <li>Standalone Applications</li>
+				<li>JAVA Syntax | OOPs Concepts</li>
+				<li>Methods | Classes | Constructor | Inheritance</li>
+				<li>Java Command Line Arguments</li>
+			</ul>
+        </div>
+      </section>
+      {% endif %}
+
         {% if site.resume_section_projects %}
       <!-- My Products -->
       <section class="content-section">
@@ -49,7 +77,7 @@
 
         <div class="resume-item">
           <h3 class="resume-item-title">FindX: Advanced Google Search | 2.5k+ downloads</h3>
-          <h4 class="resume-item-details">Android Application &bull; Google Dorking Simplified</h4> 
+          <h4 class="resume-item-details">Android Application &bull; Google Dorking Simplified</h4>
           <p class="resume-item-copy">With FindX you can now Search more accurately on your favourite search engines.<br>FindX offers</p>
             <ul class="resume-item-list">
                   <li>Searching by Site name/domain: Search results for a specific Site or Domain.</li>
@@ -61,7 +89,7 @@
           </div>
       </section>
       {% endif %}
-        
+
         {% if site.resume_section_experience %}
       <!-- My Experience -->
       <section class="content-section">
@@ -103,7 +131,7 @@
               </ul>
           </div>
 
-        
+
         <div class="resume-item" itemscope itemprop="worksFor" itemtype="http://schema.org/Organization">
           <h3 class="resume-item-title" itemprop="name">Airveda Technologies (Freelancing)</h3>
           <h4 class="resume-item-details" itemprop="description">UI/UX Developer &bull; Dec, 2015 &mdash; Feb, 2016</h4>
@@ -113,7 +141,7 @@
             <li>Designed data in graphical grids</li>
             <li>Designed various layouts for data representation</li>
           </ul>
-		
+
         </div><!-- end of resume-item -->
 
         <!-- another resume item -->
@@ -155,7 +183,7 @@
         <header class="section-header">
           <h2>Skill</h2>
         </header>
-          
+
         <div class="resume-item">
           <h4 class="resume-item-details">Programming</h4>
           <p class="resume-item-copy">JAVA, HTML/CSS, MySQL</p>
@@ -186,7 +214,7 @@
           <h4 class="resume-item-details">EC-Council &bull; Jan, 2019</h4>
 			<p class="resume-item-copy">Certified Ethical Hacker is a qualification obtained by demonstrating knowledge of assessing the security of computer systems.</p>
           </div>
-          
+
         <div class="resume-item">
           <h3 class="resume-item-title" itemprop="award">CORE JAVA</h3>
           <h4 class="resume-item-details">IIHT Ltd &bull; July, 2015</h4>
@@ -245,7 +273,7 @@
       </footer>
 
     </div>
-      
+
 <!-- Google Analatics Integration-->
 	  <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -257,7 +285,7 @@
           ga('send', 'pageview');
 
       </script>
-	  
+
   </body>
 
 </html>
