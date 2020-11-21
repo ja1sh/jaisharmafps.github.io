@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>An Offensive Maual Approach to XSS (Cross Site Scripting)</title>
+<meta name="description" content="An Offensive Maual Approach to Reflected XSS (Cross Site Scripting)">
+
+<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="http://ja1sharma.com/blog/2018/a-wonderful-serenity-has-taken-possession-of-my-entire-soul/">
+<link rel="alternate" type="application/rss+xml" title="feed" href="http://ja1sharma.com/feed.xml" />
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-52446115-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+</head>
+<body>
+  <header class="site-header">
+  <div class="container">
+    <input type="checkbox" id="toggleNavbar">
+    <h1 class="logo"><a href="/">ja1<span>sharma</span></a></h1>
+    <label for="toggleNavbar" role="button" class="toggle-navbar-button">
+      <i class="icon icon-menu"></i>
+      <i class="icon icon-cross"></i>
+    </label>
+    <nav class="navbar">
+      <ul>
+        <li><a href="/" title="Home">Home</a></li>
+
+          <li><a href="/about" title="About">About</a></li>
+
+          <li><a href="/icons" title="Icons">Icons</a></li>
+
+          <li><a href="/blog" title="Blog">Publications</a></li>
+
+          <li><a href="/hof" title="HOF">Hall of Fames</a></li>
+
+        <li><a href="/feed.xml" target="_blank"><i class="icon icon-rss"></i></a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<main class="main-container">
+  <div class="container">
+    <article role="article" class="post">
+
+  <div class="card">
+    <header class="post-header">
+      <h1 class="post-title">An Offensive Maual Approach to XSS (Cross Site Scripting)</h1>
+      <em class="post-meta">
+        <time>Oct 07, 2018</time>
+      </em>
+    </header>
+
+    <div class="post-content">
+
+      <p>Hi guys, I would like to share my knowledge and finding in the area of Cyber Security/Ethical Hacking, in this article I will be sharing an offensive approach to find or execute Cross Site Scripting i.e, XSS vulnerability in any web application.
+
+1. Some Basics
+WHAT is XSS?
+Cross Site Scripting is a vulnerability is a type of bad code injection attack in which malicious code is injected into any browser side script. MORE
+
+TYPES of XSS:
+Reflected
+Stored
+DOM based
+Not going into details for Stored and DOM based XSS this article approach will be giving a broader span on the Reflected type XSS attacks!
+
+So let's get started!
+
+2. Tools:
+Burp Suite & Firefox browser
+
+3. Bring it on:
+Step 1: Make sure to connect your browser to Burp Suite proxy (I connected FireFox: As it does not block any XSS script execution like Chrome)
+
+On FireFox end this should look like this:
+
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 2: Load browser with the site URL, you will notice the traffic coming from that domain specifically. This will capture that request in the Burp Suite's Intercept tab:
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 3: Locate your target (domain/URL) in the Target tab, click on it and it should display all the request type in Burp Suit Target tab's right column
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 4: Now we have to sort all the requests by "Params". This is where things get interesting, the majority of XSS are executed from the params
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 5: Here we have to bit creative and sort the requests which are caring same params, after sorting we have to send that request into the Repeater tab:
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 6: Added request in Repeater tab will contain some of the parameters (single or multiple), We are currently operating on the GET methods but I am sure POST will be similar to approach with this methodology.
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 7: We have to add custom text to each parameter, here we have two parameters: name & submit, we will add any random text to it, just to see how this is getting reflected in the page source code.
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 8: We'll find out which of the parameter is reflecting directly in the Response code, here "batman1" is reflected back in the response. However, there is a catch, this is enclosed in a HTML tag i.e, "<center>":
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 9: Now parameter name is ready to take our XSS payload as it is being reflected in the source code, we have to close the <center> HTML tag then put our JS script there.
+</center><script>alert('XSSbyJAI')</script>
+We will use the above payload in the name parameter so that this will bypass the <center> HTML tag and execute the simple alert JavaScript code.
+
+Step 10: Enter the payload and observe the source code, if the source code is not filtering out the payload and reflecting as it is, then there an XSS vulnerability (reflected type):
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Step 11: For this step, we just need to run this request on our browser, for that we can right click and select the Response in Browser option from the Repeater tab's Request section
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+Copy the URL and run it within the FireFox browser, make sure to turn Intercept off from Burp Suite!
+
+This will result in a reflected XSS attack, which many of you are familiar with:
+
+
+
+
+
+
+
+
+Add alt text
+No alt text provided for this image
+So, what happened here?
+
+It is simple, the parameter was not filtered properly which caused it to deploy the parameter value as it is in the source code, which then further took a malicious payload from us and deployed in to the source code.
+
+This was a simple alert script which I have executed in my demo, but there could be tones of malicious JavaScript payloads or scripts which can even cause more severe damage, like:
+
+Capture
+Scripts that will capture user inputs, save screenshots, take snapshots, etc. Any way to retrieve information related to the user or its behavior.
+
+System
+Perform network and system operations from the browser executing the script. From system fingerprinting to network DDoS via portscans and network info collection.
+
+Browsing
+Anything that can be used to alter users browsing experience, or take over the injected browser. Shells, local storage leaks and corruption, forced downloads, CSRF, token theft and more.
+
+And much more! (Read more about how vulnerable XSS is here)
+
+Similarly, POST methods can be targeted, along with the parameters they carry within the Body, so there is a greater chance to locate XSS from POST methods as well!
+
+I hope if you made through all above steps and curios to know more findings like Mitigation and different types of OWASP attacks, I will surely draft another article like this!
+Thanks for reading!
+
+
+Note: (*) A legal permission from the target is MUST required before pen testing that target. If you don't have one you can try this one for the practice purpose!</p>
+    </div>
+
+
+<hr>
+
+<aside id="comments" class="disqus">
+  <h3><i class="icon icon-comments-o"></i> Comments</h3>
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function() {
+      this.page.url = 'http://ja1sharma.com/blog/2018/HowToRXSS/';
+      this.page.identifier = '/blog/2018/HowToRXSS';
+    };
+    (function() {
+      var d = document,
+      s = d.createElement('script');
+      s.src = '//nandothemes.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+</aside>
+
+
+  </div>
+
+</article>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <ul class="social">
+      <li><a href="https://github.com/jaisharmafps" target="_blank"><i class="icon icon-github"></i></a></li>
+      <li><a href="https://twitter.com/ja1sharma" target="_blank"><i class="icon icon-twitter"></i></a></li>
+      <li><a href="https://linkedin.com/in/ja1sharma" target="_blank"><i class="icon icon-linkedin"></i></a></li>
+</ul>
+
+    <p class="txt-medium-gray">
+      <small>&copy;2020 All rights reserved. Made with <a href="http://jekyllrb.com/" target="_blank">Jekyll</a> and ♥</small>
+    </p>
+  </div>
+</footer>
+
+
+  <a href="http://github.com/nandomoreirame/end2end" target="_blank" class="github-corner"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#337ab7; color:#fff; position: absolute; top: 0; border: 0; right: 0;"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+</body>
+</html>
