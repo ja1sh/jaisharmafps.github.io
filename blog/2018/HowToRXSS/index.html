@@ -86,7 +86,7 @@ Burp Suite & Firefox browser</p>
 <p>3. Bring it on:
 Step 1: Make sure to connect your browser to Burp Suite proxy (I connected FireFox: As it does not block any XSS script execution like Chrome)</p>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ZPttVqNGugY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p style="text-align: center"><iframe width="560" height="315" src="https://www.youtube.com/embed/ZPttVqNGugY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 
 <p>On FireFox end this should look like this:</p>
 
@@ -95,37 +95,37 @@ Step 1: Make sure to connect your browser to Burp Suite proxy (I connected FireF
 <p>Add alt text
 No alt text provided for this image
 Step 2: Load browser with the site URL, you will notice the traffic coming from that domain specifically. This will capture that request in the Burp Suite's Intercept tab:</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQEdSpV4kn3_UA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=vhSKJf-9F0L-gno-ipWheVIb0bjCAjhb4WOhmUxEaMc">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQEdSpV4kn3_UA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=vhSKJf-9F0L-gno-ipWheVIb0bjCAjhb4WOhmUxEaMc"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 3: Locate your target (domain/URL) in the Target tab, click on it and it should display all the request type in Burp Suit Target tab's right column</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQGLPjY64CQXTQ/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=duVMiOZKHV3rvDLncTcIi9U5JswY_IqChq93X7XC54o">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQGLPjY64CQXTQ/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=duVMiOZKHV3rvDLncTcIi9U5JswY_IqChq93X7XC54o"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 4: Now we have to sort all the requests by "Params". This is where things get interesting, the majority of XSS are executed from the params</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQHmHvPYbL9iRw/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=l3lcC5ZejABkxRd-chMD7CGFew7R9J091ou-Kdz9ryY">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQHmHvPYbL9iRw/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=l3lcC5ZejABkxRd-chMD7CGFew7R9J091ou-Kdz9ryY"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 5: Here we have to bit creative and sort the requests which are caring same params, after sorting we have to send that request into the Repeater tab:</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQFhKqp2R7i35Q/article-inline_image-shrink_1000_1488/0/1538935181405?e=1611187200&v=beta&t=6JD-G527B7lDRv7xNYwmsCZ7jnM7fN4Uy7hmCgFVl-M">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQFhKqp2R7i35Q/article-inline_image-shrink_1000_1488/0/1538935181405?e=1611187200&v=beta&t=6JD-G527B7lDRv7xNYwmsCZ7jnM7fN4Uy7hmCgFVl-M"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 6: Added request in Repeater tab will contain some of the parameters (single or multiple), We are currently operating on the GET methods but I am sure POST will be similar to approach with this methodology.</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQFddya9pA47dg/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=Zhq-Vsq42Apeq1ZV2AlngNIBsgagf91opmH5OvyDhTs">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQFddya9pA47dg/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=Zhq-Vsq42Apeq1ZV2AlngNIBsgagf91opmH5OvyDhTs"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 7: We have to add custom text to each parameter, here we have two parameters: name & submit, we will add any random text to it, just to see how this is getting reflected in the page source code.</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQGvdJ3MyDr6FA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=knTYyeO78N66QP5XhDGY3lwUCSDqwsLacauvEVrRx2s">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQGvdJ3MyDr6FA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=knTYyeO78N66QP5XhDGY3lwUCSDqwsLacauvEVrRx2s"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 8: We'll find out which of the parameter is reflecting directly in the Response code, here "batman1" is reflected back in the response. However, there is a catch, this is enclosed in a HTML tag i.e, "&lt;center&gt;":</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQFJPSg2F1uRMg/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=qfcTOvNLg80T9J_Of3T9LxRFvDoutpCaXcRu-ZI55qg">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQFJPSg2F1uRMg/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=qfcTOvNLg80T9J_Of3T9LxRFvDoutpCaXcRu-ZI55qg"></p>
 
 <p>Add alt text
 No alt text provided for this image
@@ -134,19 +134,19 @@ Step 9: Now parameter name is ready to take our XSS payload as it is being refle
 <p>We will use the above payload in the name parameter so that this will bypass the &lt;center&gt; HTML tag and execute the simple alert JavaScript code.</p>
 
 <p>Step 10: Enter the payload and observe the source code, if the source code is not filtering out the payload and reflecting as it is, then there an XSS vulnerability (reflected type):</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQGlvB6iyBQBZA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=6HVr47v-0Likp6-3GhG4XyqKqluJYCcTpHI7qMYCZ3A">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQGlvB6iyBQBZA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=6HVr47v-0Likp6-3GhG4XyqKqluJYCcTpHI7qMYCZ3A"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Step 11: For this step, we just need to run this request on our browser, for that we can right click and select the Response in Browser option from the Repeater tab's Request section</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQF09699mKOoxQ/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=np9NqUJzqz0SeE6COtUsx3-cui23O_VMBSLRoEpzVFE">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQF09699mKOoxQ/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=np9NqUJzqz0SeE6COtUsx3-cui23O_VMBSLRoEpzVFE"></p>
 
 <p>Add alt text
 No alt text provided for this image
 Copy the URL and run it within the FireFox browser, make sure to turn Intercept off from Burp Suite!</p>
 
 <p>This will result in a reflected XSS attack, which many of you are familiar with:</p>
-<img src="https://media-exp1.licdn.com/dms/image/C5112AQEKLq5-MT_8oA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=Q-9NOekvLpprSCEczhYM27-u9VhRMq9MBoLhzujz7vk">
+<p style="text-align: center"><img src="https://media-exp1.licdn.com/dms/image/C5112AQEKLq5-MT_8oA/article-inline_image-shrink_1000_1488/0?e=1611187200&v=beta&t=Q-9NOekvLpprSCEczhYM27-u9VhRMq9MBoLhzujz7vk"></p>
 
 <p>Add alt text
 No alt text provided for this image
