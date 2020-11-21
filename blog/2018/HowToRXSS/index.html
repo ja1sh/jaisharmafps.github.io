@@ -157,7 +157,7 @@ Step 7: We have to add custom text to each parameter, here we have two parameter
 
 Add alt text
 No alt text provided for this image
-Step 8: We'll find out which of the parameter is reflecting directly in the Response code, here "batman1" is reflected back in the response. However, there is a catch, this is enclosed in a HTML tag i.e, "<center>":
+Step 8: We'll find out which of the parameter is reflecting directly in the Response code, here "batman1" is reflected back in the response. However, there is a catch, this is enclosed in a HTML tag i.e, "&lt;center&gt;":
 
 
 
@@ -167,9 +167,9 @@ Step 8: We'll find out which of the parameter is reflecting directly in the Resp
 
 Add alt text
 No alt text provided for this image
-Step 9: Now parameter name is ready to take our XSS payload as it is being reflected in the source code, we have to close the <center> HTML tag then put our JS script there.
-</center><script>alert('XSSbyJAI')</script>
-We will use the above payload in the name parameter so that this will bypass the <center> HTML tag and execute the simple alert JavaScript code.
+Step 9: Now parameter name is ready to take our XSS payload as it is being reflected in the source code, we have to close the &lt;center&gt; HTML tag then put our JS script there.
+&lt;/center&gt;&lt;script&gt;alert('XSSbyJAI')&lt;/script&gt;
+We will use the above payload in the name parameter so that this will bypass the &lt;center&gt; HTML tag and execute the simple alert JavaScript code.
 
 Step 10: Enter the payload and observe the source code, if the source code is not filtering out the payload and reflecting as it is, then there an XSS vulnerability (reflected type):
 
