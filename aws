@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        window.location.href = "http://169.254.169.254/";
+    </script>
+</head>
+</html>
